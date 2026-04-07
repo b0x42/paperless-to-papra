@@ -4,15 +4,13 @@ CLI migration tool to export documents from [Paperless-ngx](https://docs.paperle
 
 ## Features
 
-- Exports all documents, tags, correspondents, and document types from Paperless-ngx
-- Uploads documents to Papra with full metadata preservation
-- Maps correspondents to `correspondent:` prefixed tags
-- Maps document types to `type:` prefixed tags
-- Encodes created dates and archive serial numbers into document names
-- Transfers OCR content for full-text search in Papra
-- Dry-run mode to preview changes before committing
-- Export-only mode to dump Paperless-ngx data to JSON
-- Safe to re-run (Papra deduplicates by SHA256)
+- 📦 **Full export** — documents, tags, correspondents, and document types from Paperless-ngx
+- 🏷️ **Metadata preservation** — correspondents → `correspondent:` tags, document types → `type:` tags, colors preserved
+- 📅 **Date & ASN encoding** — created dates and archive serial numbers embedded in document names
+- 🔍 **OCR content transfer** — full-text search preserved in Papra
+- 👀 **Dry-run mode** — preview what would be migrated without making changes
+- 💾 **Export-only mode** — dump Paperless-ngx data to JSON
+- 🔁 **Idempotent** — safe to re-run, duplicates are skipped via SHA256
 
 ## Installation
 
