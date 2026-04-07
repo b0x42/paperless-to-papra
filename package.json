@@ -1,0 +1,44 @@
+{
+  "name": "paperless-to-papra",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "CLI migration tool to export documents from Paperless-ngx and import them into Papra.",
+  "author": "Benjamin",
+  "license": "AGPL-3.0-or-later",
+  "keywords": ["papra", "paperless", "paperless-ngx", "migration", "cli", "document-management"],
+  "bin": {
+    "paperless-to-papra": "./bin/cli.mjs"
+  },
+  "exports": {
+    ".": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "files": ["bin", "dist"],
+  "scripts": {
+    "dev": "tsx ./src/cli.ts",
+    "build": "tsdown",
+    "build:watch": "tsdown --watch",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "@papra/api-sdk": "^1.2.0",
+    "citty": "^0.1.6",
+    "ofetch": "^1.4.1",
+    "picocolors": "^1.1.1",
+    "valibot": "^1.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "tsdown": "^0.12.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
