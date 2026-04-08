@@ -18,10 +18,12 @@ CLI migration tool to export documents from [Paperless-ngx](https://docs.paperle
 ## Installation
 
 ```bash
-# From GitHub
 npm install -g github:b0x42/paperless2papra
+```
 
-# Or run directly without installing
+Or run directly without installing:
+
+```bash
 npx github:b0x42/paperless2papra migrate --help
 ```
 
