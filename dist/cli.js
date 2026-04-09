@@ -293,6 +293,11 @@ function printSummary(result) {
 	if (result.failed.length > 0) {
 		console.log(`  Failed:   ${pc.red(String(result.failed.length))}`);
 		for (const f of result.failed) console.log(`    - ${f.title}: ${f.error}`);
+		if (result.failed.some((f) => f.error.includes("File too large"))) {
+			console.log(pc.yellow(`\n  Hint: Some documents exceeded Papra's upload size limit.`));
+			console.log(pc.yellow(`  Set DOCUMENT_STORAGE_MAX_UPLOAD_SIZE=0 to disable the limit.`));
+			console.log(pc.dim(`  See: https://docs.papra.app/self-hosting/configuration/#complete-env`));
+		}
 	}
 }
 //#endregion

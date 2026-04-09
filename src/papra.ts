@@ -204,5 +204,11 @@ export function printSummary(result: MigrationResult) {
     for (const f of result.failed) {
       console.log(`    - ${f.title}: ${f.error}`)
     }
+    const hasPayloadTooLarge = result.failed.some(f => f.error.includes('File too large'))
+    if (hasPayloadTooLarge) {
+      console.log(pc.yellow(`\n  Hint: Some documents exceeded Papra's upload size limit.`))
+      console.log(pc.yellow(`  Set DOCUMENT_STORAGE_MAX_UPLOAD_SIZE=0 to disable the limit.`))
+      console.log(pc.dim(`  See: https://docs.papra.app/self-hosting/configuration/#complete-env`))
+    }
   }
 }
